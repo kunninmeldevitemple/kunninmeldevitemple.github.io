@@ -10,13 +10,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* Custom styles and color palette */
         :root {
-            --primary-color: #b30000;
-            --secondary-color: #ffcc99;
-            --text-color: #4a4a4a;
-            --background-color: #fff8f0;
+            --primary-color: #8b0000; /* Darker red for elegance */
+            --secondary-color: #ffdab9; /* Peach-puff for a warm feel */
+            --text-color: #333333;
+            --background-color: #fefcfb;
+            --card-bg: #ffffff;
         }
 
         body {
@@ -24,6 +27,7 @@
             font-family: 'Noto Sans Malayalam', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
+            line-height: 1.6;
         }
 
         h1, h2 {
@@ -49,17 +53,37 @@
             /* Duplicating the text to create a seamless loop */
             animation: scroll-left 15s linear infinite;
         }
+
+        /* Enhanced card-like effect for sections */
+        .page {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .page:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
     <!-- Header Section -->
-    <header class="bg-red-800 text-white p-6 md:p-10 text-center shadow-lg overflow-hidden relative">
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-            Kiliroor Kunninmel Devi Temple
-        </h1>
-        <h2 class="text-xl md:text-3xl mt-2 font-medium">
-            കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം
-        </h2>
+    <header class="bg-red-900 text-white p-6 md:p-10 text-center shadow-2xl overflow-hidden relative">
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+            <!-- Goddess Image Placeholder -->
+            <img
+                src="https://placehold.co/150x200/ffdab9/8b0000?text=Goddess+Image"
+                alt="Goddess Parvati"
+                class="w-32 h-40 md:w-40 md:h-52 rounded-xl shadow-lg border-4 border-orange-200"
+            />
+            <!-- Titles -->
+            <div>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                    Kiliroor Kunninmel Devi Temple
+                </h1>
+                <h2 class="text-xl md:text-3xl mt-2 font-medium text-orange-200">
+                    കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം
+                </h2>
+            </div>
+        </div>
         
         <!-- Scrolling Mantra Banner -->
         <div class="absolute inset-x-0 bottom-0 py-2">
@@ -78,21 +102,43 @@
             <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('pooja')">Pooja & Timings</button>
             <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('gallery')">Gallery</button>
             <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('contact')">Contact</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('social')">On Social</button>
         </div>
     </nav>
 
     <!-- Main Content Sections -->
-    <main class="container mx-auto p-6 md:p-10 flex-grow">
+    <main class="container mx-auto p-4 md:p-10 flex-grow">
 
         <!-- Home Page Section (Initially visible) -->
         <section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
-            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Welcome</h3>
-            <p class="text-lg leading-relaxed mb-4">
-                Welcome to the official website of Kiliroor Kunninmel Devi Temple.
-            </p>
-            <p class="text-lg leading-relaxed">
-                <span class="font-semibold text-red-800">Kiliroor Kunninmel Devi Temple</span> (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a serene and spiritually vibrant temple located in Kiliroor, near Thiruvarpu in Kottayam district, Kerala. Resting atop a gentle hill, this centuries-old shrine is dedicated to Goddess Parvati, revered here as the supreme mother who blesses devotees with prosperity, protection, and peace. The temple’s elevated location offers a tranquil atmosphere, making it a much-loved destination for worshippers and visitors alike.
-            </p>
+            <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Main Image -->
+                <div class="md:order-2">
+                    <img
+                        src="https://placehold.co/800x600/e7e7e7/333333?text=Scenic+Temple+View"
+                        alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
+                        class="rounded-2xl shadow-lg w-full h-auto"
+                    />
+                </div>
+                <!-- Intro Text -->
+                <div class="md:order-1 text-lg">
+                    <p class="leading-relaxed mb-4">
+                        Tucked away in the serene landscapes of Kottayam, **Kiliroor Kunninmel Devi Temple** (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection. Its tranquil setting and traditional Kerala architecture create a truly sacred space for prayer and reflection.
+                    </p>
+                    <p class="leading-relaxed">
+                        This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Disclaimer Section moved to the end of the home page section -->
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md mt-6" role="alert">
+                <p class="font-bold">Disclaimer:</p>
+                <p class="text-sm">
+                    This is an unofficial website to provide information as available from different sources. The information provided on this site is not guaranteed to be accurate. The temple, its committee members, or any other associated parties are not responsible for the content, and visitors are advised to verify all details regarding travel, pooja timings, and rituals directly with the temple authorities before making any decisions.
+                </p>
+            </div>
         </section>
 
         <!-- About Page Section -->
@@ -106,6 +152,24 @@
                     <p>
                         Beyond its religious significance, the temple is also a cultural hub, hosting various festivals throughout the year. The annual festival, a spectacle of vibrant colors and traditional art forms, attracts devotees from all over the region.
                     </p>
+                    
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Mythological Significance</h4>
+                    <p class="mb-4">
+                        Legend has it that the Goddess chose this sacred hilltop as her abode to bless and protect the local community. The temple is a symbol of faith and a place where countless generations have found solace and spiritual strength.
+                    </p>
+                    
+                    <!-- New section for other deities -->
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Other Deities</h4>
+                    <p class="mb-4">
+                        In addition to the primary deity, the temple complex houses several other shrines dedicated to various Hindu deities. These sub-deities are also revered by devotees and are an integral part of the temple's spiritual life.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><span class="font-bold">Lord Shiva:</span> The temple has a dedicated shrine for Lord Shiva.</li>
+                        <li><span class="font-bold">Lord Ganapathy:</span> Devotees offer prayers to Lord Ganesha for the removal of obstacles.</li>
+                        <li><span class="font-bold">Lord Sastha:</span> A shrine for Lord Sastha, also known as Lord Ayyappa, is present.</li>
+                        <li><span class="font-bold">Yakshi:</span> The temple also has a shrine for Yakshi.</li>
+                        <li><span class="font-bold">Lord Srikrishna:</span> Uniquely, the temple also has statues depicting Buddha in the form of Lord Srikrishna.</li>
+                    </ul>
 
                     <!-- Festivals Section -->
                     <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Major Festivals</h4>
@@ -120,7 +184,7 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <img
-                        src="https://placehold.co/400x300/a35f29/ffffff?text=Temple+Entrance"
+                        src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+Entrance"
                         alt="Temple entrance"
                         class="rounded-lg shadow-md w-full h-auto"
                     />
@@ -133,7 +197,7 @@
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Pooja & Timings</h3>
             <div class="grid md:grid-cols-2 gap-8 text-lg">
                 <div>
-                    <h4 class="text-2xl font-semibold text-red-700 mb-2">Daily Timings</h4>
+                    <h4 class="text-2xl font-semibold text-red-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-sun text-yellow-500"></i> Daily Timings</h4>
                     <ul class="list-disc list-inside space-y-1">
                         <li>Temple opens: 5:00 AM (Nada Thurakkal)</li>
                         <li>Nirmalyam: 5:10 AM</li>
@@ -143,7 +207,7 @@
                         <li>Ucha (noon) Pooja: 9:30 AM</li>
                         <li>Temple closes: around 10:00 AM</li>
                     </ul>
-                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Evening Timings</h4>
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-4 flex items-center gap-2"><i class="fa-solid fa-moon text-indigo-500"></i> Evening Timings</h4>
                      <ul class="list-disc list-inside space-y-1">
                         <li>Temple reopens: ~5:30 PM</li>
                         <li>Deeparadhana: 6:30 PM</li>
@@ -152,7 +216,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-2xl font-semibold text-red-700 mb-2">Pooja Offerings</h4>
+                    <h4 class="text-2xl font-semibold text-red-700 mb-4">Pooja Offerings</h4>
                     <ul class="list-disc list-inside space-y-1">
                         <li>Archana (Special prayer)</li>
                         <li>Pushpanjali (Flower offering)</li>
@@ -170,6 +234,9 @@
         <!-- Gallery Page Section -->
         <section id="gallery" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Gallery</h3>
+            <p class="text-center text-gray-600 mb-6">
+                A visual journey through the sacred spaces and vibrant traditions of the temple.
+            </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <img src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+View+1" alt="Temple View 1" class="rounded-lg shadow-md transition-transform hover:scale-105" />
                 <img src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+View+2" alt="Temple View 2" class="rounded-lg shadow-md transition-transform hover:scale-105" />
@@ -183,27 +250,66 @@
         <!-- Contact Page Section -->
         <section id="contact" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Contact Us</h3>
-            <div class="grid md:grid-cols-2 gap-8 text-lg">
+            <div class="grid md:grid-cols-3 gap-8 text-lg">
                 <div>
                     <p class="font-semibold mb-2">Address:</p>
                     <p>Kiliroor Kunninmel Devi Temple</p>
                     <p>Kiliroor, Thiruvarpu</p>
-                    <p>Kottayam, Kerala 686027</p>
+                    <p>Kottayam, Kerala 686030</p>
                     <p>India</p>
                 </div>
                 <div>
                     <p class="font-semibold mb-2">Contact Information:</p>
                     <p>Email: kiliroorkunninmeldevitemple@gmail.com</p>
-                    <p>Phone: +91 99613 60753</p>
+                    <p>Phone: (Number not available)</p>
+                </div>
+                <div>
+                    <p class="font-semibold mb-2">Location:</p>
+                    <!-- Link to open Google Maps with the temple location -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=9.593673,76.516301" target="_blank" class="text-red-700 hover:underline block mb-2">
+                        View Temple on Google Maps
+                    </a>
+                    <!-- Link to get directions to the temple on Google Maps -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=9.593673,76.516301" target="_blank" class="text-white bg-red-700 px-4 py-2 rounded-full hover:bg-red-800 transition-colors duration-300 block text-center mb-4">
+                        Get Directions
+                    </a>
+                    <!-- Placeholder for the QR Code -->
+                    <div class="mx-auto rounded-lg shadow-md w-32 h-32 md:w-40 md:h-40 bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+                        QR Code Placeholder
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Social Page Section -->
+        <section id="social" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform text-center">
+            <!-- Responsive Iframe Container -->
+            <div class="relative w-full overflow-hidden" style="padding-bottom: 56.25%;">
+                <!-- Placeholder for your social media iframe -->
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkilirooramma%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                    width="500" 
+                    height="500" 
+                    style="border:none;overflow:hidden" 
+                    scrolling="no" 
+                    frameborder="0" 
+                    allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
+        </section>
+        
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-red-800 text-white p-4 text-center mt-auto shadow-inner">
+    <footer class="bg-red-900 text-white p-4 mt-auto shadow-inner flex justify-between items-center">
         <p class="text-sm">&copy; 2025 Kiliroor Kunninmel Devi Temple. All Rights Reserved.</p>
+        <div>
+            <a href="https://www.facebook.com/kilirooramma/" target="_blank" class="text-white hover:text-blue-400 transition-colors duration-300">
+                <i class="fab fa-facebook-square text-3xl"></i>
+            </a>
+        </div>
     </footer>
 
     <!-- JavaScript for page navigation -->
