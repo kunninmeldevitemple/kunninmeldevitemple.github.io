@@ -4,42 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiliroor Kunninmel Devi Temple</title>
-    <!-- Tailwind CSS -->
+    <!-- Using Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Font for Malayalam -->
+    <!-- Google Font for better Malayalam support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
+        /* Custom styles and color palette */
         :root {
-            --primary-color: #8b0000;
-            --secondary-color: #ffdab9;
+            --primary-color: #8b0000; /* Darker red for elegance */
+            --secondary-color: #ffdab9; /* Peach-puff for a warm feel */
             --text-color: #333333;
             --background-color: #fefcfb;
+            --card-bg: #ffffff;
         }
+
         body {
+            /* Using Noto Sans Malayalam for proper rendering */
             font-family: 'Noto Sans Malayalam', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
+            line-height: 1.6;
         }
-        .nav-link.active { background-color: var(--primary-color); color: white; border-radius: 9999px; font-weight: bold; }
-        @keyframes scroll-left { 0% { transform: translateX(100%);} 100% { transform: translateX(-100%);} }
-        .scrolling-text { white-space: nowrap; animation: scroll-left 15s linear infinite; }
-        .page { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05); transition: transform 0.3s ease-in-out;}
-        .page:hover { transform: translateY(-5px);}
+
+        h1, h2 {
+            font-family: 'Noto Sans Malayalam', 'Arial', sans-serif;
+        }
+
+        /* Active navigation link styling */
+        .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 9999px; /* rounded-full */
+            font-weight: bold;
+        }
+
+        /* Animation for the scrolling mantra */
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .scrolling-text {
+            white-space: nowrap;
+            /* Duplicating the text to create a seamless loop */
+            animation: scroll-left 15s linear infinite;
+        }
+
+        /* Enhanced card-like effect for sections */
+        .page {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .page:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Carousel specific styles */
+        .carousel-item {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.hidden {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item.visible {
+            opacity: 1;
+            position: static;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <!-- Header -->
+    <!-- Header Section -->
     <header class="bg-red-900 text-white p-6 md:p-10 text-center shadow-2xl overflow-hidden relative">
         <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-            <img src="images/devi.jpg" alt="Goddess Parvati"
-                class="w-32 h-44 md:w-40 md:h-56 rounded-xl shadow-lg border-4 border-orange-200 object-cover"/>
+            <!-- Goddess Image Placeholder -->
+            <img
+                src="images/devi.jpg"
+                alt="Goddess Parvati"
+                class="w-32 h-32 md:w-40 md:h-40 rounded-xl shadow-lg border-4 border-orange-200 object-cover"
+            />
+            <!-- Titles -->
             <div>
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Kiliroor Kunninmel Devi Temple</h1>
-                <h2 class="text-xl md:text-3xl mt-2 font-medium text-orange-200">കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം</h2>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                    Kiliroor Kunninmel Devi Temple
+                </h1>
+                <h2 class="text-xl md:text-3xl mt-2 font-medium text-orange-200">
+                    കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം
+                </h2>
             </div>
         </div>
+        
+        <!-- Scrolling Mantra Banner -->
         <div class="absolute inset-x-0 bottom-0 py-2">
             <div class="text-xl font-bold italic tracking-widest text-orange-200 scrolling-text">
                 <span class="inline-block px-4">അമ്മേ നാരായണാ * ദേവീ നാരായണാ * ലക്ഷ്മി നാരായണ * ഭദ്രേ നാരായണാ *</span>
@@ -48,117 +111,324 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation Section -->
     <nav class="bg-orange-100 p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-center items-center gap-4">
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold active" onclick="showPage('home')">Home</button>
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold" onclick="showPage('about')">About</button>
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold" onclick="showPage('pooja')">Pooja & Timings</button>
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold" onclick="showPage('gallery')">Gallery</button>
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold" onclick="showPage('contact')">Contact</button>
-            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 rounded-full font-bold" onclick="showPage('social')">On Social</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold active" onclick="showPage('home')">Home</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('about')">About</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('pooja')">Pooja & Timings</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('gallery')">Gallery</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('contact')">Contact</button>
+            <button class="nav-link px-4 py-2 text-red-800 hover:bg-orange-200 transition-colors duration-300 rounded-full font-bold" onclick="showPage('social')">On Social</button>
         </div>
     </nav>
 
-    <!-- Pages -->
+    <!-- Main Content Sections -->
     <main class="container mx-auto p-4 md:p-10 flex-grow">
-        <!-- Home -->
-        <section id="home" class="page bg-white p-8 rounded-xl shadow-lg">
+
+        <!-- Home Page Section (Initially visible) -->
+        <section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
             <div class="grid md:grid-cols-3 gap-8 items-start">
-                <!-- Image (Smaller) -->
-                <div class="md:order-2 md:col-span-1">
-                    <img src="images/temple_full_view.jpg" alt="Kiliroor Kunninmel Devi Temple"
-                        class="rounded-xl shadow-md w-full max-w-xs mx-auto"/>
+                <!-- Left Column: Intro Text -->
+                <div class="text-lg">
+                    <p class="leading-relaxed mb-4">
+                        Tucked away in the serene landscapes of Kottayam, **Kiliroor Kunninmel Devi Temple** (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection. Its tranquil setting and traditional Kerala architecture create a truly sacred space for prayer and reflection.
+                    </p>
+                    <p class="leading-relaxed">
+                        This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.
+                    </p>
                 </div>
-                <!-- Intro Text -->
-                <div class="md:order-1 md:col-span-1 text-lg">
-                    <p class="mb-4">Tucked away in the serene landscapes of Kottayam, <strong>Kiliroor Kunninmel Devi Temple</strong> (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection.</p>
-                    <p>This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.</p>
+                
+                <!-- Middle Column: Temple Image -->
+                <div class="flex justify-center items-center">
+                    <img
+                        src="images/devi.jpg"
+                        alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
+                        class="rounded-2xl shadow-lg w-64 h-auto object-cover"
+                    />
                 </div>
-                <!-- Announcements Section -->
-                <div class="md:order-3 md:col-span-1 bg-orange-50 border border-orange-200 rounded-xl shadow-md p-4">
-                    <h4 class="text-xl font-bold text-red-800 mb-2">Announcements</h4>
-                    <ul class="list-disc list-inside mb-4 text-sm">
-                        <li>Annual Ulsavam: March 2025 (Meenam month)</li>
-                        <li>Navaratri Mahotsavam: October 2025</li>
-                        <li>Special Pooja: Every Friday evening</li>
-                    </ul>
-                    <img src="images/announcement_placeholder.jpg" alt="Event Poster" class="rounded-md shadow w-full">
+                
+                <!-- Right Column: Announcements & Poster Carousels -->
+                <div class="space-y-6">
+                    <!-- Announcements Section (Top Right) -->
+                    <div class="bg-red-50 p-6 rounded-xl shadow-lg border border-red-200 relative overflow-hidden h-64">
+                        <h4 class="text-2xl font-bold text-red-800 mb-4">Announcements</h4>
+                        <div id="announcement-carousel" class="relative w-full h-full">
+                            <!-- Carousel Item 1 -->
+                            <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                                <p class="font-bold text-red-700">Annual Ulsavam</p>
+                                <p class="text-sm text-gray-600">The 8-day annual festival starts on March 25th with special rituals and cultural programs. All are welcome!</p>
+                            </div>
+                            <!-- Carousel Item 2 -->
+                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                                <p class="font-bold text-red-700">Navaratri Mahotsavam</p>
+                                <p class="text-sm text-gray-600">Join us for the 9-day Navaratri festival starting on October 1st. Special poojas and offerings will be held daily.</p>
+                            </div>
+                            <!-- Carousel Item 3 -->
+                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                                <p class="font-bold text-red-700">Temple Renovations</p>
+                                <p class="text-sm text-gray-600">The temple committee is initiating a renovation project. Donations are welcome and can be made at the temple office.</p>
+                            </div>
+                            <!-- Carousel Item 4 -->
+                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                                <p class="font-bold text-red-700">Monthly Ganapathi Homam</p>
+                                <p class="text-sm text-gray-600">The monthly Ganapathi Homam will be conducted on the first Sunday of every month at 5:30 AM.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Poster/Image Section (Bottom Right) -->
+                    <div class="flex justify-center relative overflow-hidden rounded-xl shadow-lg">
+                        <div id="poster-carousel" class="relative w-full h-auto">
+                            <!-- Carousel Image 1 -->
+                            <img
+                                src="https://placehold.co/400x400/e7e7e7/333333?text=Event+Poster+1"
+                                alt="Event Poster 1"
+                                class="carousel-item visible rounded-xl w-full h-auto object-cover"
+                            />
+                            <!-- Carousel Image 2 -->
+                            <img
+                                src="https://placehold.co/400x400/e7e7e7/333333?text=Event+Poster+2"
+                                alt="Event Poster 2"
+                                class="carousel-item hidden rounded-xl w-full h-auto object-cover"
+                            />
+                            <!-- Carousel Image 3 -->
+                            <img
+                                src="https://placehold.co/400x400/e7e7e7/333333?text=Event+Poster+3"
+                                alt="Event Poster 3"
+                                class="carousel-item hidden rounded-xl w-full h-auto object-cover"
+                            />
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Disclaimer Section moved to the end of the home page section -->
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md mt-6" role="alert">
+                <p class="font-bold">Disclaimer:</p>
+                <p class="text-sm">
+                    This is an unofficial website to provide information as available from different sources. The information provided on this site is not guaranteed to be accurate. The temple, its committee members, or any other associated parties are not responsible for the content, and visitors are advised to verify all details regarding travel, pooja timings, and rituals directly with the temple authorities before making any decisions.
+                </p>
             </div>
         </section>
 
-        <!-- About -->
-        <section id="about" class="page hidden bg-white p-8 rounded-xl shadow-lg">
+        <!-- About Page Section -->
+        <section id="about" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">About the Temple</h3>
-            <p>The Kiliroor Kunninmel Devi Temple is steeped in history and folklore, with its origins believed to date back several centuries. The presiding deity, Goddess Parvati, is worshipped in her tranquil form, embodying maternal love and divine power. The temple's architecture showcases traditional Kerala style, with its intricate woodwork and a serene sanctum sanctorum.</p>
-        </section>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="text-lg">
+                    <p class="mb-4">
+                        The Kiliroor Kunninmel Devi Temple is steeped in history and folklore, with its origins believed to date back several centuries. The presiding deity, Goddess Parvati, is worshipped in her tranquil form, embodying maternal love and divine power. The temple's architecture showcases traditional Kerala style, with its intricate woodwork and a serene sanctum sanctorum.
+                    </p>
+                    <p>
+                        Beyond its religious significance, the temple is also a cultural hub, hosting various festivals throughout the year. The annual festival, a spectacle of vibrant colors and traditional art forms, attracts devotees from all over the region.
+                    </p>
+                    
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Mythological Significance</h4>
+                    <p class="mb-4">
+                        Legend has it that the Goddess chose this sacred hilltop as her abode to bless and protect the local community. The temple is a symbol of faith and a place where countless generations have found solace and spiritual strength.
+                    </p>
+                    
+                    <!-- New section for other deities -->
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Other Deities</h4>
+                    <p class="mb-4">
+                        In addition to the primary deity, the temple complex houses several other shrines dedicated to various Hindu deities. These sub-deities are also revered by devotees and are an integral part of the temple's spiritual life.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><span class="font-bold">Lord Shiva:</span> The temple has a dedicated shrine for Lord Shiva.</li>
+                        <li><span class="font-bold">Lord Ganapathy:</span> Devotees offer prayers to Lord Ganesha for the removal of obstacles.</li>
+                        <li><span class="font-bold">Lord Sastha:</span> A shrine for Lord Sastha, also known as Lord Ayyappa, is present.</li>
+                        <li><span class="font-bold">Yakshi:</span> The temple also has a shrine for Yakshi.</li>
+                        <li><span class="font-bold">Lord Srikrishna:</span> Uniquely, the temple also has statues depicting Buddha in the form of Lord Srikrishna.</li>
+                    </ul>
 
-        <!-- Pooja & Timings -->
-        <section id="pooja" class="page hidden bg-white p-8 rounded-xl shadow-lg">
-            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Pooja & Timings</h3>
-            <ul class="list-disc list-inside space-y-1">
-                <li>5:00 AM – Nada Thurakkal & Nirmalyam</li>
-                <li>5:30 AM – Ganapathy Homam</li>
-                <li>7:30 AM – Usha Pooja</li>
-                <li>9:30 AM – Ucha Pooja</li>
-                <li>10:00 AM – Temple closes</li>
-                <li>5:30 PM – Temple reopens</li>
-                <li>6:30 PM – Deeparadhana</li>
-                <li>7:00 PM – Athazha Pooja</li>
-                <li>7:30 PM – Temple closes</li>
-            </ul>
-        </section>
-
-        <!-- Gallery -->
-        <section id="gallery" class="page hidden bg-white p-8 rounded-xl shadow-lg">
-            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Gallery</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <img src="images/gallery1.jpg" alt="Temple View 1" class="rounded-lg shadow-md hover:scale-105 transition-transform"/>
-                <img src="images/gallery2.jpg" alt="Temple View 2" class="rounded-lg shadow-md hover:scale-105 transition-transform"/>
-                <img src="images/gallery3.jpg" alt="Annual Festival" class="rounded-lg shadow-md hover:scale-105 transition-transform"/>
+                    <!-- Festivals Section -->
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-2">Major Festivals</h4>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>
+                            <span class="font-bold">Annual Ulsavam (Meenam):</span> An 8-day celebration culminating in the **Arattu** ceremony on the day of Pooram nakshatra, typically held in the Malayalam month of Meenam (March–April).
+                        </li>
+                        <li>
+                            <span class="font-bold">Navaratri Mahotsavam (Kanni month):</span> A nine-day festival in honor of Goddess Bhagavathy, featuring special rituals, cultural programs, and vibrant processions.
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img
+                        src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+Entrance"
+                        alt="Temple entrance"
+                        class="rounded-lg shadow-md w-full h-auto object-cover"
+                    />
+                </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact" class="page hidden bg-white p-8 rounded-xl shadow-lg">
-            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Contact Us</h3>
+        <!-- Pooja & Timings Page Section -->
+        <section id="pooja" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
+            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Pooja & Timings</h3>
             <div class="grid md:grid-cols-2 gap-8 text-lg">
+                <div>
+                    <h4 class="text-2xl font-semibold text-red-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-sun text-yellow-500"></i> Daily Timings</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Temple opens: 5:00 AM (Nada Thurakkal)</li>
+                        <li>Nirmalyam: 5:10 AM</li>
+                        <li>Ganapathy Homam: 5:30 AM</li>
+                        <li>Sreebali: 7:00 AM</li>
+                        <li>Usha Pooja: 7:30 AM</li>
+                        <li>Ucha (noon) Pooja: 9:30 AM</li>
+                        <li>Temple closes: around 10:00 AM</li>
+                    </ul>
+                    <h4 class="text-2xl font-semibold text-red-700 mt-6 mb-4 flex items-center gap-2"><i class="fa-solid fa-moon text-indigo-500"></i> Evening Timings</h4>
+                     <ul class="list-disc list-inside space-y-1">
+                        <li>Temple reopens: ~5:30 PM</li>
+                        <li>Deeparadhana: 6:30 PM</li>
+                        <li>Athazha (evening) Pooja: 7:00 PM</li>
+                        <li>Temple closes: around 7:30 PM</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold text-red-700 mb-4">Pooja Offerings</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Archana (Special prayer)</li>
+                        <li>Pushpanjali (Flower offering)</li>
+                        <li>Thrikkaduva Pooja (Daily rituals)</li>
+                        <li>Ganapathi Homam (For prosperity)</li>
+                        <li>Swayamvara Parvathi Homam (For marriage blessings)</li>
+                        <li>
+                            <span class="font-bold">Charakkil Ada:</span> Adorning the deity with sweet ada made using 101 units each of rice, coconut, banana, 3 thulam jaggery, and ghee (neyyu).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Page Section -->
+        <section id="gallery" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
+            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Gallery</h3>
+            <p class="text-center text-gray-600 mb-6">
+                A visual journey through the sacred spaces and vibrant traditions of the temple.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+View+1" alt="Temple View 1" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Temple+View+2" alt="Temple View 2" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Annual+Festival" alt="Annual Festival" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Pooja+Rituals" alt="Pooja Rituals" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Sculpture+Detail" alt="Sculpture Detail" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+                <img src="https://placehold.co/400x300/e7e7e7/333333?text=Hillside+View" alt="Hillside View" class="rounded-lg shadow-md transition-transform hover:scale-105" />
+            </div>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section id="contact" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
+            <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Contact Us</h3>
+            <div class="grid md:grid-cols-3 gap-8 text-lg">
                 <div>
                     <p class="font-semibold mb-2">Address:</p>
                     <p>Kiliroor Kunninmel Devi Temple</p>
-                    <p>Kiliroor Devi Temple Road, Kiliroor</p>
-                    <p>Thiruvarpu, Kottayam District</p>
-                    <p>Kerala – 686030, India</p>
-                    <p class="mt-4 font-semibold">Email: <a href="mailto:kunninmeldevitemple@gmail.com" class="text-red-700 hover:underline">kunninmeldevitemple@gmail.com</a></p>
-                    <p>Phone: +91 94953 13963</p>
+                    <p>Kiliroor, Thiruvarpu</p>
+                    <p>Kottayam, Kerala 686030</p>
+                    <p>India</p>
                 </div>
                 <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.0551780138564!2d76.4849578!3d9.5814096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062a5c64aa73f1%3A0x607171efe85d4aa!2sKiliroor%20Kunninmel%20Devi%20Temple!5e0!3m2!1sen!2sin!4v1690876800000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <p class="font-semibold mb-2">Contact Information:</p>
+                    <p>Email: kiliroorkunninmeldevitemple@gmail.com</p>
+                    <p>Phone: (Number not available)</p>
+                </div>
+                <div>
+                    <p class="font-semibold mb-2">Location:</p>
+                    <!-- Link to open Google Maps with the temple location -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=9.593673,76.516301" target="_blank" class="text-red-700 hover:underline block mb-2">
+                        View Temple on Google Maps
+                    </a>
+                    <!-- Link to get directions to the temple on Google Maps -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=9.593673,76.516301" target="_blank" class="text-white bg-red-700 px-4 py-2 rounded-full hover:bg-red-800 transition-colors duration-300 block text-center mb-4">
+                        Get Directions
+                    </a>
+                    <!-- Placeholder for the QR Code -->
+                    <div class="mx-auto rounded-lg shadow-md w-32 h-32 md:w-40 md:h-40 bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+                        QR Code Placeholder
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Social -->
-        <section id="social" class="page hidden bg-white p-8 rounded-xl shadow-lg text-center">
-            <iframe class="mx-auto" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkilirooramma%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+        <!-- Social Page Section -->
+        <section id="social" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform text-center">
+            <!-- Responsive Iframe Container -->
+            <div class="relative w-full overflow-hidden" style="padding-bottom: 56.25%;">
+                <!-- Placeholder for your social media iframe -->
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkilirooramma%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                    width="500" 
+                    height="500" 
+                    style="border:none;overflow:hidden" 
+                    scrolling="no" 
+                    frameborder="0" 
+                    allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
         </section>
+        
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer class="bg-red-900 text-white p-4 mt-auto shadow-inner flex justify-between items-center">
         <p class="text-sm">&copy; 2025 Kiliroor Kunninmel Devi Temple. All Rights Reserved.</p>
-        <a href="https://www.facebook.com/kilirooramma/" target="_blank" class="text-white hover:text-blue-400"><i class="fab fa-facebook-square text-3xl"></i></a>
+        <div>
+            <a href="https://www.facebook.com/kilirooramma/" target="_blank" class="text-white hover:text-blue-400 transition-colors duration-300">
+                <i class="fab fa-facebook-square text-3xl"></i>
+            </a>
+        </div>
     </footer>
 
+    <!-- JavaScript for page navigation and carousels -->
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show the selected page
             document.getElementById(pageId).classList.remove('hidden');
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+            // Update active state in nav bar
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
             document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
         }
+
+        function startCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const items = carousel.querySelectorAll('.carousel-item');
+            let currentItemIndex = 0;
+
+            function showNextItem() {
+                // Hide the current item
+                items[currentItemIndex].classList.remove('visible');
+                items[currentItemIndex].classList.add('hidden');
+
+                // Move to the next item, or loop back to the beginning
+                currentItemIndex = (currentItemIndex + 1) % items.length;
+
+                // Show the new current item
+                items[currentItemIndex].classList.remove('hidden');
+                items[currentItemIndex].classList.add('visible');
+            }
+
+            // Start the carousel on a 5-second interval
+            setInterval(showNextItem, 5000);
+        }
+
+        // Wait for the window to load before starting the carousels
+        window.onload = function() {
+            startCarousel('announcement-carousel');
+            startCarousel('poster-carousel');
+        };
     </script>
 </body>
 </html>
