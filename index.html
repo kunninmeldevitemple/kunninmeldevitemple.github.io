@@ -134,9 +134,9 @@
         A Divine Retreat at Kiliroor Kunninmel
     </h3>
     
-    <div class="grid md:grid-cols-3 gap-8 items-start">
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
         <!-- Left Column: Intro Text + Announcements -->
-        <div class="flex flex-col space-y-6">
+        <div class="flex flex-col justify-between space-y-4">
             <!-- Intro Text -->
             <div class="text-lg">
                 <p class="leading-relaxed mb-4">
@@ -146,51 +146,48 @@
                     This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.
                 </p>
             </div>
-           <!-- Announcements Box -->
-<div class="bg-red-50 p-3 rounded-lg shadow-md border border-red-200 relative overflow-hidden w-full">
-    <h4 class="text-lg font-semibold text-red-800 mb-1">Announcements</h4>
-    <div id="announcement-carousel" class="relative w-full h-full">
-        <!-- Active Announcement -->
-        <div class="carousel-item visible p-2 bg-white rounded-lg shadow-sm border border-red-100">
-            <p class="font-bold text-red-700 text-base">Srimad Bhagavatha Sapthaham</p>
-            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                18th Aug – 24th Aug 2025. All are welcome!
-            </p>
-        </div>
-        <!--
-        <div class="carousel-item hidden p-2 bg-white rounded-lg shadow-sm border border-red-100">
-            <p class="font-bold text-red-700 text-base">Navaratri Mahotsavam</p>
-            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                9-day Navaratri celebrations starting 1st Oct 2025.
-            </p>
-        </div>
-        -->
-    </div>
-</div>
-
+            <!-- Announcements Box -->
+            <div class="bg-red-50 p-3 rounded-lg shadow-md border border-red-200 relative overflow-hidden w-full">
+                <h4 class="text-lg font-semibold text-red-800 mb-1">Announcements</h4>
+                <div id="announcement-carousel" class="relative w-full h-full">
+                    <!-- Active Announcement -->
+                    <div class="carousel-item visible p-2 bg-white rounded-lg shadow-sm border border-red-100">
+                        <p class="font-bold text-red-700 text-base">Srimad Bhagavatha Sapthaham</p>
+                        <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                            18th Aug – 24th Aug 2025. All are welcome!
+                        </p>
+                    </div>
+                    <!--
+                    <div class="carousel-item hidden p-2 bg-white rounded-lg shadow-sm border border-red-100">
+                        <p class="font-bold text-red-700 text-base">Navaratri Mahotsavam</p>
+                        <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                            9-day Navaratri celebrations starting 1st Oct 2025.
+                        </p>
+                    </div>
+                    -->
+                </div>
+            </div>
         </div>
 
         <!-- Middle Column: Temple Image -->
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center h-full">
             <img
                 src="images/temple_full_view.jpg"
                 alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
-                class="rounded-2xl shadow-lg w-full object-cover"
-                style="max-height: 400px;"
+                class="rounded-2xl shadow-lg w-full h-full object-cover"
             />
         </div>
 
         <!-- Right Column: Poster Carousel -->
-        <div id="poster-carousel" class="relative w-full">
+        <div id="poster-carousel" class="relative w-full h-full">
             <!-- Active Poster -->
             <img src="images/Bhagavatha.jpg" alt="Event Poster 1"
-                class="carousel-item visible rounded-xl shadow-lg w-full object-cover"
-                style="max-height: 400px;"/>
+                class="carousel-item visible rounded-xl shadow-lg w-full h-full object-cover"/>
             <!--
             <img src="images/Navaratri.jpg" alt="Event Poster 2"
-                class="carousel-item hidden rounded-xl shadow-lg w-full object-cover max-h-[400px]"/>
+                class="carousel-item hidden rounded-xl shadow-lg w-full h-full object-cover"/>
             <img src="images/GanapathiHomam.jpg" alt="Event Poster 3"
-                class="carousel-item hidden rounded-xl shadow-lg w-full object-cover max-h-[400px]"/>
+                class="carousel-item hidden rounded-xl shadow-lg w-full h-full object-cover"/>
             -->
         </div>
     </div>
@@ -203,10 +200,6 @@
         </p>
     </div>
 </section>
-
-
-
-
         <!-- About Page Section -->
         <section id="about" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">About the Temple</h3>
