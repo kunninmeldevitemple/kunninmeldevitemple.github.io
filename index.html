@@ -446,7 +446,8 @@
         };
     </script>
 
-    <script>
+<!-- Script for galler-->
+<script>
 const USERNAME = "kunninmeldevitemple";  // <-- Replace with your GitHub username
 const REPO = "kunninmeldevitemple.github.io";          // <-- Replace with your repo name
 const GALLERY_PATH = "images/gallery";  // Folder in your repo
@@ -462,28 +463,55 @@ async function loadGallery() {
         .forEach(file => {
             const img = document.createElement("img");
             img.src = file.download_url;
-            img.className = "w-full h-96 object-cover flex-shrink-0";
+            img.className = "w-full aspect-[16/9] object-cover flex-shrink-0";
             carousel.appendChild(img);
         });
 }
 
 const positions = {};
+let autoSlideInterval;
+function updateSlide(category) {
+    const carousel = document.getElementById(`carousel-${category}`);
+    carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+}
 function nextSlide(category) {
     const carousel = document.getElementById(`carousel-${category}`);
     const total = carousel.children.length;
     positions[category] = (positions[category] || 0) + 1;
     if (positions[category] >= total) positions[category] = 0;
-    carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+    updateSlide(category);
 }
 function prevSlide(category) {
     const carousel = document.getElementById(`carousel-${category}`);
     const total = carousel.children.length;
     positions[category] = (positions[category] || 0) - 1;
     if (positions[category] < 0) positions[category] = total - 1;
-    carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+    updateSlide(category);
 }
 
-loadGallery();
+// Auto-slide every 5s
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => nextSlide('gallery'), 5000);
+}
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+const carouselWrapper = document.querySelector('.group');
+carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+
+// Swipe support for mobile
+let startX = 0;
+const carousel = document.getElementById("carousel-gallery");
+carousel.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+carousel.addEventListener('touchend', (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextSlide('gallery');
+    if (endX - startX > 50) prevSlide('gallery');
+});
+
+loadGallery().then(startAutoSlide);
 </script>
 
 </body>
