@@ -127,6 +127,7 @@
     <main class="container mx-auto p-4 md:p-10 flex-grow">
 
         <!-- Home Page Section (Initially visible) -->
+<!-- Home Page Section -->
 <section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
     <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
     <div class="grid md:grid-cols-3 gap-8 items-start">
@@ -138,43 +139,50 @@
             <p class="leading-relaxed">This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.</p>
         </div>
 
-        <!-- Middle Column: Announcements Carousel -->
-        <div class="space-y-6 flex flex-col">
-            <div class="bg-red-50 p-4 rounded-xl shadow-lg border border-red-200 relative overflow-hidden h-40">
+        <!-- Middle Column: Temple Image -->
+        <div class="flex justify-center items-center">
+            <img
+                src="images/temple_full_view.jpg"
+                alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
+                class="rounded-2xl shadow-lg w-64 h-auto object-cover"
+            />
+        </div>
+
+        <!-- Right Column: Carousels stacked (Announcements + Posters) -->
+        <div class="space-y-6 flex flex-col items-center justify-start w-full">
+            <!-- Announcements Carousel -->
+            <div class="bg-red-50 p-4 rounded-xl shadow-lg border border-red-200 relative overflow-hidden w-full h-40">
                 <h4 class="text-xl font-bold text-red-800 mb-2">Announcements</h4>
                 <div id="announcement-carousel" class="relative w-full h-full">
-                    <!-- Announcement 1 -->
+                    <!-- Active Announcement -->
                     <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100">
                         <p class="font-bold text-red-700 text-sm">Srimad Bhagavatha Sapthaham</p>
                         <p class="text-xs text-gray-600">18th Aug – 24th Aug 2025. All are welcome!</p>
                     </div>
-                    <!-- 
+                    <!--
                     <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
                         <p class="font-bold text-red-700 text-sm">Navaratri Mahotsavam</p>
                         <p class="text-xs text-gray-600">9-day Navaratri celebrations starting 1st Oct 2025.</p>
-                    </div>Announcement 2 -->
-                    <!-- 
+                    </div>
                     <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
                         <p class="font-bold text-red-700 text-sm">Monthly Ganapathi Homam</p>
                         <p class="text-xs text-gray-600">First Sunday of every month at 5:30 AM.</p>
-                    </div>Announcement 3 -->
+                    </div>
+                    -->
                 </div>
             </div>
-        </div>
 
-        <!-- Right Column: Poster Carousel -->
-        <div class="flex justify-center items-start h-full">
+            <!-- Poster Carousel -->
             <div id="poster-carousel" class="relative w-full">
-                <!-- Poster 1 -->
+                <!-- Active Poster -->
                 <img src="images/Bhagavatha.jpg" alt="Event Poster 1"
                     class="carousel-item visible rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
                 <!--
                 <img src="images/Navaratri.jpg" alt="Event Poster 2"
                     class="carousel-item hidden rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
-                 Poster 2 --><!--
                 <img src="images/GanapathiHomam.jpg" alt="Event Poster 3"
                     class="carousel-item hidden rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
-             Poster 3 -->
+                -->
             </div>
         </div>
     </div>
@@ -187,6 +195,7 @@
         </p>
     </div>
 </section>
+
 
         <!-- About Page Section -->
         <section id="about" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
