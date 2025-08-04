@@ -128,11 +128,12 @@
 
         <!-- Home Page Section (Initially visible) -->
 <!-- Home Page Section -->
+<!-- Home Page Section -->
 <section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
     <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
-    <div class="grid md:grid-cols-3 gap-8 items-start">
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
         <!-- Left Column: Intro Text -->
-        <div class="text-lg">
+        <div class="text-lg flex flex-col justify-between">
             <p class="leading-relaxed mb-4">
                 Tucked away in the serene landscapes of Kottayam, <b>Kiliroor Kunninmel Devi Temple</b> (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection. Its tranquil setting and traditional Kerala architecture create a truly sacred space for prayer and reflection.
             </p>
@@ -144,18 +145,19 @@
             <img
                 src="images/temple_full_view.jpg"
                 alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
-                class="rounded-2xl shadow-lg w-64 h-auto object-cover"
+                class="rounded-2xl shadow-lg w-full max-w-xs h-full object-cover"
+                style="max-height: 500px;"
             />
         </div>
 
-        <!-- Right Column: Carousels stacked (Announcements + Posters) -->
-        <div class="space-y-6 flex flex-col items-center justify-start w-full">
+        <!-- Right Column: Carousels stacked -->
+        <div class="space-y-6 flex flex-col w-full h-full">
             <!-- Announcements Carousel -->
-            <div class="bg-red-50 p-4 rounded-xl shadow-lg border border-red-200 relative overflow-hidden w-full h-40">
+            <div class="bg-red-50 p-4 rounded-xl shadow-lg border border-red-200 relative overflow-hidden w-full flex-grow" style="max-height: 150px;">
                 <h4 class="text-xl font-bold text-red-800 mb-2">Announcements</h4>
                 <div id="announcement-carousel" class="relative w-full h-full">
                     <!-- Active Announcement -->
-                    <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                    <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100 h-full flex flex-col justify-center">
                         <p class="font-bold text-red-700 text-sm">Srimad Bhagavatha Sapthaham</p>
                         <p class="text-xs text-gray-600">18th Aug – 24th Aug 2025. All are welcome!</p>
                     </div>
@@ -173,10 +175,11 @@
             </div>
 
             <!-- Poster Carousel -->
-            <div id="poster-carousel" class="relative w-full">
+            <div id="poster-carousel" class="relative w-full flex-grow">
                 <!-- Active Poster -->
                 <img src="images/Bhagavatha.jpg" alt="Event Poster 1"
-                    class="carousel-item visible rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
+                    class="carousel-item visible rounded-xl shadow-lg w-full object-contain"
+                    style="max-height: 320px;"/>
                 <!--
                 <img src="images/Navaratri.jpg" alt="Event Poster 2"
                     class="carousel-item hidden rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
@@ -195,6 +198,7 @@
         </p>
     </div>
 </section>
+
 
 
         <!-- About Page Section -->
