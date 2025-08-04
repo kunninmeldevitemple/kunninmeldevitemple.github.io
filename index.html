@@ -319,15 +319,22 @@
     </p>
     
     <!-- Single Carousel -->
-    <div class="relative w-full overflow-hidden rounded-lg shadow-lg">
-        <div class="carousel flex transition-transform duration-500 ease-in-out" id="carousel-gallery">
+    <div class="relative w-full overflow-hidden rounded-lg shadow-lg group">
+        <div class="carousel flex transition-transform duration-700 ease-in-out" id="carousel-gallery">
             <!-- Images will be loaded dynamically -->
         </div>
         <!-- Navigation -->
-        <button onclick="prevSlide('gallery')" class="absolute top-1/2 left-2 bg-white p-2 rounded-full shadow">‹</button>
-        <button onclick="nextSlide('gallery')" class="absolute top-1/2 right-2 bg-white p-2 rounded-full shadow">›</button>
+        <button onclick="prevSlide('gallery')" 
+            class="absolute top-1/2 left-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
+            ‹
+        </button>
+        <button onclick="nextSlide('gallery')" 
+            class="absolute top-1/2 right-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
+            ›
+        </button>
     </div>
 </section>
+
 
 
 
