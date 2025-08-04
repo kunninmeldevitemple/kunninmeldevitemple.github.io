@@ -319,20 +319,20 @@
     </p>
     
     <!-- Single Carousel -->
-    <div class="relative w-full overflow-hidden rounded-lg shadow-lg group">
-        <div class="carousel flex transition-transform duration-700 ease-in-out" id="carousel-gallery">
-            <!-- Images will be loaded dynamically -->
-        </div>
-        <!-- Navigation -->
-        <button onclick="prevSlide('gallery')" 
-            class="absolute top-1/2 left-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
-            ‹
-        </button>
-        <button onclick="nextSlide('gallery')" 
-            class="absolute top-1/2 right-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
-            ›
-        </button>
+<div class="relative w-full overflow-hidden rounded-lg shadow-lg group">
+    <div class="carousel flex transition-transform duration-700 ease-in-out" id="carousel-gallery">
+        <!-- Images loaded dynamically -->
     </div>
+    <!-- Navigation -->
+    <button onclick="prevSlide('gallery')" 
+        class="absolute top-1/2 left-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
+        ‹
+    </button>
+    <button onclick="nextSlide('gallery')" 
+        class="absolute top-1/2 right-2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow opacity-0 group-hover:opacity-100 transition">
+        ›
+    </button>
+</div>
 </section>
 
 
@@ -459,6 +459,9 @@ const USERNAME = "kunninmeldevitemple";  // <-- Replace with your GitHub usernam
 const REPO = "kunninmeldevitemple.github.io";          // <-- Replace with your repo name
 const GALLERY_PATH = "images/gallery";  // Folder in your repo
 
+let positions = { gallery: 0 };
+let autoSlideInterval;
+
 async function loadGallery() {
     const url = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/${GALLERY_PATH}`;
     const response = await fetch(url);
@@ -470,17 +473,30 @@ async function loadGallery() {
         .forEach(file => {
             const img = document.createElement("img");
             img.src = file.download_url;
-            img.className = "w-full aspect-[16/9] object-cover flex-shrink-0";
+            img.className = "w-full h-auto object-contain flex-shrink-0 bg-black"; // no cropping
             carousel.appendChild(img);
         });
+
+    adjustCarouselHeight();
+    startAutoSlide();
 }
 
-const positions = {};
-let autoSlideInterval;
 function updateSlide(category) {
     const carousel = document.getElementById(`carousel-${category}`);
+    const total = carousel.children.length;
     carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+    adjustCarouselHeight();
 }
+
+function adjustCarouselHeight() {
+    const carousel = document.getElementById("carousel-gallery");
+    const activeIndex = positions.gallery || 0;
+    const activeImage = carousel.children[activeIndex];
+    if (activeImage) {
+        carousel.parentElement.style.height = activeImage.clientHeight + "px";
+    }
+}
+
 function nextSlide(category) {
     const carousel = document.getElementById(`carousel-${category}`);
     const total = carousel.children.length;
@@ -488,6 +504,7 @@ function nextSlide(category) {
     if (positions[category] >= total) positions[category] = 0;
     updateSlide(category);
 }
+
 function prevSlide(category) {
     const carousel = document.getElementById(`carousel-${category}`);
     const total = carousel.children.length;
@@ -496,29 +513,19 @@ function prevSlide(category) {
     updateSlide(category);
 }
 
-// Auto-slide every 5s
 function startAutoSlide() {
+    stopAutoSlide();
     autoSlideInterval = setInterval(() => nextSlide('gallery'), 5000);
 }
 function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-const carouselWrapper = document.querySelector('.group');
-carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
-carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+const wrapper = document.querySelector('.group');
+wrapper.addEventListener('mouseenter', stopAutoSlide);
+wrapper.addEventListener('mouseleave', startAutoSlide);
 
-// Swipe support for mobile
-let startX = 0;
-const carousel = document.getElementById("carousel-gallery");
-carousel.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
-carousel.addEventListener('touchend', (e) => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextSlide('gallery');
-    if (endX - startX > 50) prevSlide('gallery');
-});
-
-loadGallery().then(startAutoSlide);
+loadGallery();
 </script>
 
 </body>
