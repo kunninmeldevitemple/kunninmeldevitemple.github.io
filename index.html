@@ -127,89 +127,66 @@
     <main class="container mx-auto p-4 md:p-10 flex-grow">
 
         <!-- Home Page Section (Initially visible) -->
-        <section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
-            <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
-            <div class="grid md:grid-cols-3 gap-8 items-start">
-                <!-- Left Column: Intro Text -->
-                <div class="text-lg">
-                    <p class="leading-relaxed mb-4">
-                        Tucked away in the serene landscapes of Kottayam, <b>Kiliroor Kunninmel Devi Temple</b> (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection. Its tranquil setting and traditional Kerala architecture create a truly sacred space for prayer and reflection.
-                    </p>
-                    <p class="leading-relaxed">
-                        This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.
-                    </p>
-                </div>
-                
-                <!-- Middle Column: Temple Image -->
-                <div class="flex justify-center items-center">
-                    <img
-                        src="images/temple_full_view.jpg"
-                        alt="A scenic view of the Kiliroor Kunninmel Devi Temple on a hillside."
-                        class="rounded-2xl shadow-lg w-64 h-auto object-cover"
-                    />
-                </div>
-                
-                <!-- Right Column: Announcements & Poster Carousels -->
-                <div class="space-y-6">
-                    <!-- Announcements Section (Top Right) -->
-                    <div class="bg-red-50 p-6 rounded-xl shadow-lg border border-red-200 relative overflow-hidden h-64">
-                        <h4 class="text-2xl font-bold text-red-800 mb-4">Announcements</h4>
-                        <div id="announcement-carousel" class="relative w-full h-full">
-                            <!-- Carousel Item 1 -->
-                            <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100">
-                                <p class="font-bold text-red-700">Srimad Bhagavatha Sapthaham</p>
-                                <p class="text-sm text-gray-600">The event starts from 18th Aug 2025 (Monday) to 24th Aug 2025 (Sunday). All are welcome!</p>
-                            </div>
-                            <!--
-                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
-                                <p class="font-bold text-red-700">Navaratri Mahotsavam</p>
-                                <p class="text-sm text-gray-600">Join us for the 9-day Navaratri festival starting on October 1st. Special poojas and offerings will be held daily.</p>
-                            </div>
-                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
-                                <p class="font-bold text-red-700">Temple Renovations</p>
-                                <p class="text-sm text-gray-600">The temple committee is initiating a renovation project. Donations are welcome and can be made at the temple office.</p>
-                            </div>
-                            <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
-                                <p class="font-bold text-red-700">Monthly Ganapathi Homam</p>
-                                <p class="text-sm text-gray-600">The monthly Ganapathi Homam will be conducted on the first Sunday of every month at 5:30 AM.</p>
-                            </div>
-                             -->
-                        </div>
+<section id="home" class="page bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
+    <h3 class="text-4xl font-extrabold text-red-800 mb-6 border-b-2 pb-2 text-center">A Divine Retreat at Kiliroor Kunninmel</h3>
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+        <!-- Left Column: Intro Text -->
+        <div class="text-lg">
+            <p class="leading-relaxed mb-4">
+                Tucked away in the serene landscapes of Kottayam, <b>Kiliroor Kunninmel Devi Temple</b> (കിളിരൂർ കുന്നിന്‍മേല്‍ ദേവി ക്ഷേത്രം) is a spiritual beacon for devotees. Perched on a gentle hill, this ancient shrine is dedicated to Goddess Parvati, who is revered as the divine mother and a source of peace, prosperity, and protection. Its tranquil setting and traditional Kerala architecture create a truly sacred space for prayer and reflection.
+            </p>
+            <p class="leading-relaxed">This website provides a glimpse into the temple's history, traditions, and festivals. We hope it assists you in your journey to this sacred place.</p>
+        </div>
+
+        <!-- Middle Column: Announcements Carousel -->
+        <div class="space-y-6 flex flex-col">
+            <div class="bg-red-50 p-4 rounded-xl shadow-lg border border-red-200 relative overflow-hidden h-40">
+                <h4 class="text-xl font-bold text-red-800 mb-2">Announcements</h4>
+                <div id="announcement-carousel" class="relative w-full h-full">
+                    <!-- Announcement 1 -->
+                    <div class="carousel-item visible p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                        <p class="font-bold text-red-700 text-sm">Srimad Bhagavatha Sapthaham</p>
+                        <p class="text-xs text-gray-600">18th Aug – 24th Aug 2025. All are welcome!</p>
                     </div>
-                    
-                    <!-- Poster/Image Section (Bottom Right) -->
-                    <div class="flex justify-center relative overflow-hidden rounded-xl shadow-lg">
-                        <div id="poster-carousel" class="relative w-full h-auto">
-                            <!-- Carousel Image 1 -->
-                            <img
-                                src="images/Bhagavatha.jpg"
-                                alt="Event Poster 1"
-                                class="carousel-item visible rounded-xl w-full h-auto object-cover"
-                            />
-                            <!--
-                            <img
-                                src="https://placehold.co/400x400/e7e7e7/333333?text=Event+Poster+2"
-                                alt="Event Poster 2"
-                                class="carousel-item hidden rounded-xl w-full h-auto object-cover"
-                            />
-                            <img
-                                src="https://placehold.co/400x400/e7e7e7/333333?text=Event+Poster+3"
-                                alt="Event Poster 3"
-                                class="carousel-item hidden rounded-xl w-full h-auto object-cover"
-                            /> Carousel Image 2 -->
-                        </div>
-                    </div>
+                    <!-- 
+                    <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                        <p class="font-bold text-red-700 text-sm">Navaratri Mahotsavam</p>
+                        <p class="text-xs text-gray-600">9-day Navaratri celebrations starting 1st Oct 2025.</p>
+                    </div>Announcement 2 -->
+                    <!-- 
+                    <div class="carousel-item hidden p-3 bg-white rounded-lg shadow-sm border border-red-100">
+                        <p class="font-bold text-red-700 text-sm">Monthly Ganapathi Homam</p>
+                        <p class="text-xs text-gray-600">First Sunday of every month at 5:30 AM.</p>
+                    </div>Announcement 3 -->
                 </div>
             </div>
-            
-            <!-- Disclaimer Section moved to the end of the home page section -->
-            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md mt-6" role="alert">
-                <p class="font-bold">Disclaimer:</p>
-                <p class="text-sm">
-                    This is an unofficial website to provide information as available from different sources. The information provided on this site is not guaranteed to be accurate. The temple, its committee members, or any other associated parties are not responsible for the content, and visitors are advised to verify all details regarding travel, pooja timings, and rituals directly with the temple authorities before making any decisions.
-                </p>
+        </div>
+
+        <!-- Right Column: Poster Carousel -->
+        <div class="flex justify-center items-start h-full">
+            <div id="poster-carousel" class="relative w-full">
+                <!-- Poster 1 -->
+                <img src="images/Bhagavatha.jpg" alt="Event Poster 1"
+                    class="carousel-item visible rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
+                <!--
+                <img src="images/Navaratri.jpg" alt="Event Poster 2"
+                    class="carousel-item hidden rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
+                 Poster 2 --><!--
+                <img src="images/GanapathiHomam.jpg" alt="Event Poster 3"
+                    class="carousel-item hidden rounded-xl shadow-lg w-full object-contain max-h-[400px]"/>
+             Poster 3 -->
             </div>
-        </section>
+        </div>
+    </div>
+
+    <!-- Disclaimer Section -->
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md mt-6" role="alert">
+        <p class="font-bold">Disclaimer:</p>
+        <p class="text-sm">
+            This is an unofficial website to provide information as available from different sources. The information provided on this site is not guaranteed to be accurate. The temple, its committee members, or any other associated parties are not responsible for the content, and visitors are advised to verify all details regarding travel, pooja timings, and rituals directly with the temple authorities before making any decisions.
+        </p>
+    </div>
+</section>
 
         <!-- About Page Section -->
         <section id="about" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
