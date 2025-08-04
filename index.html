@@ -295,7 +295,7 @@
             </div>
         </section>
 
-        <!-- Gallery Page Section -->
+        <!--
         <section id="gallery" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
             <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Gallery</h3>
             <p class="text-center text-gray-600 mb-6">
@@ -309,7 +309,30 @@
                 <img src="https://placehold.co/400x300/e7e7e7/333333?text=Sculpture+Detail" alt="Sculpture Detail" class="rounded-lg shadow-md transition-transform hover:scale-105" />
                 <img src="https://placehold.co/400x300/e7e7e7/333333?text=Hillside+View" alt="Hillside View" class="rounded-lg shadow-md transition-transform hover:scale-105" />
             </div>
-        </section>
+        </section> Gallery Page Section -->
+
+<!-- Gallery Page Section -->
+<section id="gallery" class="page hidden bg-white p-8 rounded-xl shadow-lg">
+    <h3 class="text-3xl font-bold text-red-800 mb-4 border-b-2 pb-2">Gallery</h3>
+    <p class="text-center text-gray-600 mb-6">
+        A glimpse into the vibrant moments at Kiliroor Kunninmel Devi Temple.
+    </p>
+    
+    <!-- Single Carousel -->
+    <div class="relative w-full overflow-hidden rounded-lg shadow-lg">
+        <div class="carousel flex transition-transform duration-500 ease-in-out" id="carousel-gallery">
+            <!-- Images will be loaded dynamically -->
+        </div>
+        <!-- Navigation -->
+        <button onclick="prevSlide('gallery')" class="absolute top-1/2 left-2 bg-white p-2 rounded-full shadow">‹</button>
+        <button onclick="nextSlide('gallery')" class="absolute top-1/2 right-2 bg-white p-2 rounded-full shadow">›</button>
+    </div>
+</section>
+
+
+
+
+        
 
         <!-- Contact Page Section -->
         <section id="contact" class="page hidden bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 transform">
@@ -422,5 +445,46 @@
             startCarousel('poster-carousel');
         };
     </script>
+
+    <script>
+const USERNAME = "kunninmeldevitemple";  // <-- Replace with your GitHub username
+const REPO = "kunninmeldevitemple.github.io";          // <-- Replace with your repo name
+const GALLERY_PATH = "images/gallery";  // Folder in your repo
+
+async function loadGallery() {
+    const url = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/${GALLERY_PATH}`;
+    const response = await fetch(url);
+    const files = await response.json();
+    const carousel = document.getElementById("carousel-gallery");
+    
+    files
+        .filter(file => file.type === "file" && /\.(jpg|jpeg|png|gif)$/i.test(file.name))
+        .forEach(file => {
+            const img = document.createElement("img");
+            img.src = file.download_url;
+            img.className = "w-full h-96 object-cover flex-shrink-0";
+            carousel.appendChild(img);
+        });
+}
+
+const positions = {};
+function nextSlide(category) {
+    const carousel = document.getElementById(`carousel-${category}`);
+    const total = carousel.children.length;
+    positions[category] = (positions[category] || 0) + 1;
+    if (positions[category] >= total) positions[category] = 0;
+    carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+}
+function prevSlide(category) {
+    const carousel = document.getElementById(`carousel-${category}`);
+    const total = carousel.children.length;
+    positions[category] = (positions[category] || 0) - 1;
+    if (positions[category] < 0) positions[category] = total - 1;
+    carousel.style.transform = `translateX(-${positions[category] * 100}%)`;
+}
+
+loadGallery();
+</script>
+
 </body>
 </html>
